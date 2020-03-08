@@ -1,5 +1,7 @@
 # HueReact
 
+[![Build Status](https://travis-ci.com/philprobinson84/hue-react-grommet.svg?branch=master)](https://travis-ci.com/philprobinson84/hue-react-grommet)
+
 A simple React app to control Philips Hue lights.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
