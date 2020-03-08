@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Heading } from 'grommet';
+import { Cafeteria, Lounge, Restaurant, Run, Book, PowerCycle } from 'grommet-icons';
 import Config from './config';
 
 class LightGroup extends React.Component {
@@ -73,20 +74,39 @@ class LightGroup extends React.Component {
         this.setGroupState(this.id, !this.state.on, this.state.bri, this.state.hue, this.state.sat)
     }
 
+    showIcon(name) {
+        switch(name) {
+            case 'Dining Room':
+                return (<Cafeteria size="xlarge"></Cafeteria>)
+            case 'Kitchen':
+                return (<Restaurant size="xlarge"></Restaurant>)
+            case 'Bedroom':
+                return (<PowerCycle size="xlarge"></PowerCycle>)
+            case 'Office':
+                return (<Book size="xlarge"></Book>)
+            case 'Hall':
+                return (<Run size="xlarge"></Run>)
+            case 'Living Room':
+                return (<Lounge size="xlarge"></Lounge>)
+            default:
+                return (null)
+        }
+    }
+
     render() {
         return ( 
             <Box
-                elevation="medium"
+                elevation="small"
                 key={this.id}
                 background={(this.state.on ? "light-2" : "dark-2")}
                 align="center"
                 padding="medium"
                 onClick={() => this.handleToggle()}
-                focusIndicator="false"
             >
                 <Heading>
                     {this.props.name}
                 </Heading>
+                {this.showIcon(this.props.name)}
             </Box>
         );
     }

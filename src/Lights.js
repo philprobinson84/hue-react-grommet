@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Box } from 'grommet';
+import { Grid } from 'grommet';
 import Config from './config';
 import LightGroup from './LightGroup';
 
