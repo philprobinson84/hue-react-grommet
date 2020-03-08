@@ -1,8 +1,4 @@
 {
     "hue_url": "http://192.168.1.225",
-    "hue_username":"y-JspnU2vendwFYC2OuRiAkZbsu021wlO2Kbw2d-",
-    "darksky_url": "https://api.darksky.net",
-    "darksky_secret":"96da2f10aa115bbc1b30a0056826c38a",
-    "latitude":51.639462,
-    "longitude":-2.678060
+    "hue_username":"y-JspnU2vendwFYC2OuRiAkZbsu021wlO2Kbw2d-"
 }
