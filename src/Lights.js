@@ -65,20 +65,16 @@ class Lights extends React.Component {
         });
 
         return (
-            <Box
-                gap="medium"
-                margin="medium"
+            <Grid
+                columns={{
+                    count: 3,
+                    size: "auto"
+                }}
+                gap="small"
+                fill
             >
-                <Grid
-                    columns={{
-                        count: 3,
-                        size: "auto"
-                    }}
-                    gap="small"
-                >
-                    {hueGroups}
-                </Grid>
-            </Box>
+                {hueGroups}
+            </Grid>
         );
     }
 }

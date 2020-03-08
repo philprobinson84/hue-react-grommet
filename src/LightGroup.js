@@ -81,11 +81,10 @@ class LightGroup extends React.Component {
                 background={(this.state.on ? "light-2" : "dark-2")}
                 align="center"
                 padding="medium"
-                
+                onClick={() => this.handleToggle()}
+                focusIndicator="false"
             >
-                <Heading 
-                    onClick={() => this.handleToggle()}
-                >
+                <Heading>
                     {this.props.name}
                 </Heading>
             </Box>

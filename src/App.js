@@ -22,7 +22,7 @@ class HueLights extends React.Component {
 
 function App() {
   return (
-    <Grommet theme={theme}>
+    <Grommet theme={theme} full>
       <HueLights />  
     </Grommet>
      
