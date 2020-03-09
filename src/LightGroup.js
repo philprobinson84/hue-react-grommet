@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Heading } from 'grommet';
-import { Cafeteria, Lounge, Restaurant, Run, Book, PowerCycle } from 'grommet-icons';
+import { Cafeteria, Lounge, Restaurant, Directions, Book, FormViewHide } from 'grommet-icons';
 import Config from './config';
 
 class LightGroup extends React.Component {
@@ -81,11 +81,11 @@ class LightGroup extends React.Component {
             case 'Kitchen':
                 return (<Restaurant size="xlarge"></Restaurant>)
             case 'Bedroom':
-                return (<PowerCycle size="xlarge"></PowerCycle>)
+                return (<FormViewHide size="xlarge"></FormViewHide>)
             case 'Office':
                 return (<Book size="xlarge"></Book>)
             case 'Hall':
-                return (<Run size="xlarge"></Run>)
+                return (<Directions size="xlarge"></Directions>)
             case 'Living Room':
                 return (<Lounge size="xlarge"></Lounge>)
             default:
@@ -103,7 +103,7 @@ class LightGroup extends React.Component {
                 padding="medium"
                 onClick={() => this.handleToggle()}
             >
-                <Heading>
+                <Heading level="2">
                     {this.props.name}
                 </Heading>
                 {this.showIcon(this.props.name)}

@@ -67,7 +67,7 @@ class Lights extends React.Component {
         return (
             <Grid
                 columns={{
-                    count: 3,
+                    count: 2,
                     size: "auto"
                 }}
                 gap="small"

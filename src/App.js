@@ -12,18 +12,10 @@ const theme = {
   },
 };
 
-class HueLights extends React.Component {
-  render() {
-    return (
-      <Lights />
-    );
-  }
-}
-
 function App() {
   return (
     <Grommet theme={theme} full>
-      <HueLights />  
+      <Lights />  
     </Grommet>
      
   );
