@@ -100,7 +100,6 @@ class LightGroup extends React.Component {
                 key={this.id}
                 background={(this.state.on ? "light-2" : "dark-2")}
                 align="center"
-                padding="medium"
                 onClick={() => this.handleToggle()}
             >
                 <Heading level="2">

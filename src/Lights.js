@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from 'grommet';
+import { Grid, ResponsiveContext } from 'grommet';
 import Config from './config';
 import LightGroup from './LightGroup';
 
@@ -12,6 +12,7 @@ class Lights extends React.Component {
 
     componentDidMount() {
         this.fetchGroups();
+        this.timer = setInterval(() => this.fetchGroups(),10000);
     }
 
     getHueGroupsUrl() {
@@ -65,16 +66,20 @@ class Lights extends React.Component {
         });
 
         return (
-            <Grid
-                columns={{
-                    count: 2,
-                    size: "auto"
-                }}
-                gap="small"
-                fill
-            >
-                {hueGroups}
-            </Grid>
+            <ResponsiveContext.Consumer>
+                {size => (
+                    <Grid
+                        columns={{
+                            count: size === 'small' ? 2 : 3,
+                            size: "auto"
+                        }}
+                        gap="small"
+                        margin="small"
+                        >
+                        {hueGroups}
+                    </Grid>
+                )}
+            </ResponsiveContext.Consumer>
         );
     }
 }
