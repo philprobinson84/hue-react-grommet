@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Heading } from 'grommet';
-import { Cafeteria, Lounge, Restaurant, Directions, Book, FormViewHide } from 'grommet-icons';
+import { Box, Button, Heading, Grid } from 'grommet';
+import { Cafeteria, Lounge, Restaurant, Directions, Book, FormViewHide, Add, Subtract } from 'grommet-icons';
 import Config from './config';
 
 class LightGroup extends React.Component {
@@ -74,20 +74,30 @@ class LightGroup extends React.Component {
         this.setGroupState(this.id, !this.state.on, this.state.bri, this.state.hue, this.state.sat)
     }
 
+    handleBrightnessUp() {
+        const newBri = Math.min(254, this.state.bri + 51)
+        this.setGroupState(this.id, this.state.on, newBri, this.state.hue, this.state.sat)
+    }
+
+    handleBrightnessDown() {
+        const newBri = Math.max(0, this.state.bri - 51)
+        this.setGroupState(this.id, this.state.on, newBri, this.state.hue, this.state.sat)
+    }
+
     showIcon(name) {
         switch(name) {
             case 'Dining Room':
-                return (<Cafeteria size="xlarge"></Cafeteria>)
+                return (<Cafeteria size="large"></Cafeteria>)
             case 'Kitchen':
-                return (<Restaurant size="xlarge"></Restaurant>)
+                return (<Restaurant size="large"></Restaurant>)
             case 'Bedroom':
-                return (<FormViewHide size="xlarge"></FormViewHide>)
+                return (<FormViewHide size="large"></FormViewHide>)
             case 'Office':
-                return (<Book size="xlarge"></Book>)
+                return (<Book size="large"></Book>)
             case 'Hall':
-                return (<Directions size="xlarge"></Directions>)
+                return (<Directions size="large"></Directions>)
             case 'Living Room':
-                return (<Lounge size="xlarge"></Lounge>)
+                return (<Lounge size="large"></Lounge>)
             default:
                 return (null)
         }
@@ -100,12 +110,35 @@ class LightGroup extends React.Component {
                 key={this.id}
                 background={(this.state.on ? "light-2" : "dark-2")}
                 align="center"
-                onClick={() => this.handleToggle()}
             >
-                <Heading level="2">
+                <Heading 
+                    level="3"
+                    textAlign="center"
+                    onClick={() => this.handleToggle()}
+                    margin="xsmall"
+                >
                     {this.props.name}
                 </Heading>
-                {this.showIcon(this.props.name)}
+                <Grid
+                    columns={{
+                        count: 3,
+                        size: "auto"
+                    }}
+                    gap="medium"
+                    margin={{
+                        "top": "none",
+                        "bottom": "small",
+                        "left": "small",
+                        "right": "small"
+                    }}
+                >
+                    <Button plain={false} icon={<Subtract />} onClick={() => this.handleBrightnessDown()} />
+                    <Box onClick={() => this.handleToggle()} align="center">
+                        {this.showIcon(this.props.name)}
+                        <Heading level="3" textAlign="center">{Math.round(this.state.bri/2.54)}%</Heading>
+                    </Box>
+                    <Button plain={false} icon={<Add />} onClick={() => this.handleBrightnessUp()} />
+                </Grid>
             </Box>
         );
     }
